@@ -66,12 +66,17 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
-    allow_methods=["*"],
+    # Replace with your actual GitHub Pages URL once you know it,
+    # e.g. "https://yourusername.github.io"
+    # Use ["*"] during testing, then lock it down.
+    allow_origins=["https://debisongit.github.io"],
+    allow_methods=["GET"],
     allow_headers=["*"],
+)
 )
 
 
